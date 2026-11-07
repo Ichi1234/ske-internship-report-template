@@ -6,10 +6,10 @@
 \section{System Development and Execution}
 
 \begin{itemize}[label=-]
-    \item \textbf{Design}: \guide{[Describe system design, architecture diagrams, module design, and workflow]}.
-    \item \textbf{Tools}: \guide{[List programming languages, software tools, frameworks, databases, and environments used]}.
-    \item \textbf{Procedures}: \guide{[Detail implementation steps, development workflow, testing procedures, and methodologies]}.
-    \item \textbf{Etc.}: \guide{[Describe any additional procedures or relevant execution details]}.
+    \item \textbf{Design}: The project followed the studio's pre-production pipeline: the idea was pitched, validated with a prototype, and specified in a Game Design Document (GDD), a Technical Design Document (TDD), and a UML class diagram before production began. The architecture keeps systems independent: controllers drive entities, handlers react to events, managers coordinate areas, and ScriptableObjects store game data. State machines control the player and enemies, and enemy behavior is selected from data through enums and created by a factory.
+    \item \textbf{Tools}: Unity and C\# (including the Animator and ScriptableObjects), GitHub for version control and pull request review, and draw.io for the UML class diagram.
+    \item \textbf{Procedures}: Work moved through five phases. (1) Pitching took three weeks and three game ideas. The first was dropped because I designed it for myself without considering a target audience, the second was redesigned because its difficulty curve was unusual, and the third, an action game, was approved. (2) A one-week prototype served as a proof of concept. (3) The GDD took two weeks. (4) The TDD and UML class diagram took about eleven days. (5) Production toward the MVP has taken about half of the internship, with all code submitted as pull requests and reviewed by the team before merging. The team held a daily morning meeting and a separate engineer meeting.
+    \item \textbf{Etc.}: I followed the team's documentation rules: the GDD holds values and formulas, and the TDD holds only Unity editor setup. The team also enforced naming conventions, such as class names that describe what the class does. To compare this workflow with my solo project, I recorded the duration of each phase and tracked pull requests (comments, review rounds, and time to merge).
 \end{itemize}
 
 % ==============================================================================
