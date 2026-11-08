@@ -4,17 +4,56 @@
 \chapter{Results and Analysis}
 
 \section{Results}
-\guide{Present your project results in various forms (e.g. text descriptions, quantitative metrics, charts, tables, and screenshots).}
+
+\subsection{Learning Outcomes}
+The main outcome of this internship was learning how a professional team builds games, which differs greatly from the solo and coursework projects I had done before. I describe what I learned in each phase of the work, and what it changed in how I think about development.
 
 \begin{itemize}[label=-]
-    \item \textbf{\guide{[Key Result 1]}}: \guide{[Describe key result or metric achieved]}.
-    \item \textbf{\guide{[Key Result 2]}}: \guide{[Describe experimental outcome or system output]}.
+    \item \textbf{Pre-production documents}:
+    \begin{itemize}[label=$\circ$]
+        \item \textbf{Game Design Document (GDD)}: I learned that a GDD is the single source of truth for the project, so it must be detailed enough for a new team member to start working without asking questions. This means including exact formulas and a complete feature list, not only a description of what the player can do. My university elective game course had only covered the high-level approach, so writing at this level of detail showed me that the document has to carry the decisions I would otherwise keep in my head. It also forced me to think through each system before building it.
+        \item \textbf{Design pillars}: I learned that a game should be built around a small set of design pillars, which state the core experience the game must deliver. Four is the recommended number, although it is not a strict rule. Every feature should support at least one pillar, and a feature that does not relate to any of them should be cut, even if it sounds interesting. My GDD defines four pillars centered on movement, enemy readability, player skill, and positioning. They give me a way to judge a feature by asking which pillar it serves, instead of by whether I happen to like it.
+        \item \textbf{Living documents}: I learned that design documents in the game industry are living documents. They are not written once and filed away; they are versioned and revised as playtesting and production reveal what works. Values that are not yet final are marked to be tuned during production, and sections that depend on unfinished features are flagged for redesign, so a reader can tell what is settled and what is still open.
+        \item \textbf{Technical Design Document (TDD)}: I learned that the TDD separates \textit{how} the game is built from \textit{what} the game does, which is the GDD's job. Mine covered the layer list, the collision matrix, and how game data is stored in ScriptableObjects. Deciding these engine-level details in advance meant that the team could build on the same setup, instead of each person making their own choices.
+        \item \textbf{UML class diagram}: I learned to divide a class diagram into separate pages, each focused on one part of the system. A single large diagram is hard to read and hard to review, so splitting it helps others understand the architecture before they read any code.
+    \end{itemize}
+
+    \item \textbf{Development process}:
+    \begin{itemize}[label=$\circ$]
+        \item \textbf{Prototyping}: I learned to begin with a quick prototype that proves the concept and lets other people play the game early. Because prototype code is written for speed and is expected to be discarded, it does not have to meet production standards, which removes the pressure to make it perfect. I also asked my senior whether using AI to jump-start a prototype in a future project was reasonable, and the answer was that it would work for this purpose. [Add: the prototype took one week, while production of the same scope has taken about half of the internship (see Table~\ref{tab:timeline}).]
+        \item \textbf{Brainstorming}: I learned that a brainstorming session works best with three rules. The team does not recap what is already in the document, so the time goes to new ideas. Participants must not hold others back, or they may be asked to leave. Anyone can join, which keeps communication open across the team. Before this, I had only brainstormed alone, so I had not considered that a group needs rules to stay productive.
+        \item \textbf{Task ordering}: I learned that the order of tasks matters as much as their estimates, because dependent work blocks later tasks if it is sequenced wrongly. I now discuss the plan with a mentor before creating tasks.
+    \end{itemize}
+
+    \item \textbf{Programming practices}:
+    \begin{itemize}[label=$\circ$]
+        \item \textbf{Initialization}: I learned lazy initialization, together with a CoreGame class (a GameManager) that sets up the important classes in a fixed order. Together they prevent bugs caused by the order in which Unity calls Awake and Start, a problem I used to fix case by case.
+        \item \textbf{Events and input}: I learned that only the class that owns an event should invoke it, while other classes only subscribe. Previously, any class could invoke my events, which made it hard to tell where a change came from. I also learned to centralize input in an InputManager instead of checking input directly in the player script, which keeps the player script focused on behavior.
+        \item \textbf{Language features}: Generics, assemblies, and namespaces were new to me. Learning that they are common in production code showed me how much of professional C\# I had not yet seen.
+    \end{itemize}
+
+    \item \textbf{Code review}: I learned to split a pull request into smaller parts, with assets and scripts kept separate, so that reviewers can evaluate each part quickly. My senior asked me to do this from my first ten pull requests, so I adopted it as a habit from the start of production. This taught me that a pull request should be designed for the reader, not only for the author.
+
+    \item \textbf{Industry and marketing}: I learned why developers exhibit at events such as Tokyo Game Show or Thailand Game Show. The first reason is that developers can watch players in person and see how they really behave. I experienced this during my previous cooperative education project at Kyoto Institute of Technology in Japan, where I developed a horror game and ran a user study with seven participants who played it while I observed. Seeing their reactions and hearing their comments directly helped me understand the game better than the questionnaire results alone. The second reason is that events let developers collect wishlists, and the third is that they build connections within the industry. Attending as a visitor also allows developers to play other games and ask their creators how particular features were implemented.
 \end{itemize}
+
+\subsection{Process Data}
+[Table~\ref{tab:timeline}: phase timeline (pitching, prototype, GDD, TDD and UML, production), with the Mashima solo baseline for comparison.]
+
+[Table~\ref{tab:prstats}: pull request statistics (days to merge, review comments, review rounds).]
+
+[Figure: categories of review comments (naming, architecture, bug, style).]
 
 \section{Analysis}
-\guide{Discuss and analyze the obtained results in detail.}
 
-\begin{itemize}[label=-]
-    \item \textbf{\guide{[Analysis Topic 1]}}: \guide{[Discuss performance tradeoffs, key findings, and implications]}.
-    \item \textbf{\guide{[Analysis Topic 2]}}: \guide{[Compare results against initial objectives or baseline benchmarks]}.
-\end{itemize}
+\subsection{What the Additional Time Bought}
+[What the pre-production phases and strict reviews produced: documents that a new member can build from, a consistent architecture, and conventions I now follow without being told. Link each point to a number from the tables.]
+
+\subsection{What It Cost}
+[The slower pace compared with solo work, for example about two weeks to make the player walk, and the effect of stacked branches while waiting for merges.]
+
+\subsection{Prototype Versus Production}
+[Why the prototype took one week and production has taken about half of the internship for the same scope: different goals (proof of concept versus production quality), and what the review standards required.]
+
+\subsection{Solo Versus Professional Workflow}
+[Comparison with the Mashima project: about two months solo with weekly meetings and positive feedback, versus a pipeline of documents, prototype, and pull request review. State what each workflow taught me and where each fits.]
