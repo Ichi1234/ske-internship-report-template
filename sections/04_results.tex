@@ -13,6 +13,7 @@ The main outcome of this internship was learning how a professional team builds 
     \begin{itemize}[label=$\circ$]
         \item \textbf{Game Design Document (GDD)}: I learned that a GDD is the single source of truth for the project, so it must be detailed enough for a new team member to start working without asking questions. This means including exact formulas and a complete feature list, not only a description of what the player can do. My university elective game course had only covered the high-level approach, so writing at this level of detail showed me that the document has to carry the decisions I would otherwise keep in my head. It also forced me to think through each system before building it.
         \item \textbf{Design pillars}: I learned that a game should be built around a small set of design pillars, which state the core experience the game must deliver. Four is the recommended number, although it is not a strict rule. Every feature should support at least one pillar, and a feature that does not relate to any of them should be cut, even if it sounds interesting. My GDD defines four pillars centered on movement, enemy readability, player skill, and positioning. They give me a way to judge a feature by asking which pillar it serves, instead of by whether I happen to like it.
+        \newpage
         \item \textbf{Living documents}: I learned that design documents in the game industry are living documents. They are not written once and filed away; they are versioned and revised as playtesting and production reveal what works. Values that are not yet final are marked to be tuned during production, and sections that depend on unfinished features are flagged for redesign, so a reader can tell what is settled and what is still open.
         \item \textbf{Technical Design Document (TDD)}: I learned that the TDD separates \textit{how} the game is built from \textit{what} the game does, which is the GDD's job. Mine covered the layer list, the collision matrix, and how game data is stored in ScriptableObjects. Deciding these engine-level details in advance meant that the team could build on the same setup, instead of each person making their own choices.
         \item \textbf{UML class diagram}: I learned to divide a class diagram into separate pages, each focused on one part of the system. A single large diagram is hard to read and hard to review, so splitting it helps others understand the architecture before they read any code.
@@ -20,8 +21,7 @@ The main outcome of this internship was learning how a professional team builds 
 
     \item \textbf{Development process}:
     \begin{itemize}[label=$\circ$]
-        \item \textbf{Prototyping}: I learned to begin with a quick prototype that proves the concept and lets other people play the game early. Because prototype code is written for speed and is expected to be discarded, it does not have to meet production standards, which removes the pressure to make it perfect. I also asked my senior whether using AI to jump-start a prototype in a future project was reasonable, and the answer was that it would work for this purpose. [Add: the prototype took one week, while production of the same scope has taken about half of the internship (see Table~\ref{tab:timeline}).]
-        \item \textbf{Brainstorming}: I learned that a brainstorming session works best with three rules. The team does not recap what is already in the document, so the time goes to new ideas. Participants must not hold others back, or they may be asked to leave. Anyone can join, which keeps communication open across the team. Before this, I had only brainstormed alone, so I had not considered that a group needs rules to stay productive.
+        \item \textbf{Prototyping}: I learned to begin with a quick prototype that proves the concept and lets other people play the game early. Because prototype code is written for speed and is expected to be discarded, it does not have to meet production standards, which removes the pressure to make it perfect. I wrote the prototype of this project without AI assistance. I also asked my senior whether using AI to jump-start a prototype in a future project was reasonable, and the answer was that it would work for this purpose. The prototype took about ten days, which is much shorter than production (see Table~\ref{tab:timeline}).        \item \textbf{Brainstorming}: I learned that a brainstorming session works best with three rules. The team does not recap what is already in the document, so the time goes to new ideas. Participants must not hold others back, or they may be asked to leave. Anyone can join, which keeps communication open across the team. Before this, I had only brainstormed alone, so I had not considered that a group needs rules to stay productive.
         \item \textbf{Task ordering}: I learned that the order of tasks matters as much as their estimates, because dependent work blocks later tasks if it is sequenced wrongly. I now discuss the plan with a mentor before creating tasks.
     \end{itemize}
 
@@ -29,31 +29,95 @@ The main outcome of this internship was learning how a professional team builds 
     \begin{itemize}[label=$\circ$]
         \item \textbf{Initialization}: I learned lazy initialization, together with a CoreGame class (a GameManager) that sets up the important classes in a fixed order. Together they prevent bugs caused by the order in which Unity calls Awake and Start, a problem I used to fix case by case.
         \item \textbf{Events and input}: I learned that only the class that owns an event should invoke it, while other classes only subscribe. Previously, any class could invoke my events, which made it hard to tell where a change came from. I also learned to centralize input in an InputManager instead of checking input directly in the player script, which keeps the player script focused on behavior.
-        \item \textbf{Language features}: Generics, assemblies, and namespaces were new to me. Learning that they are common in production code showed me how much of professional C\# I had not yet seen.
+        \item \textbf{Language features}: Several C\# and Unity features were new to me, and I learned what each one is for. \textit{Generics} let a single class or method work with many types, so shared code, such as a state machine or an object pool, does not have to be rewritten for each type. Because generic code does not depend on one game's classes, it can be written once and reused in other games. \textit{Namespaces} group related classes under a common name, which avoids naming conflicts and shows where a class belongs. \textit{Assemblies} split a project into separately compiled modules, which keeps dependencies between parts of the game explicit and shortens compile times. Placing reusable generic code in its own assembly also makes it easy to carry into a new project. \textit{Extension methods} add a method to an existing type, such as a Unity class, without modifying or inheriting from it, by declaring a static method whose first parameter is marked with \texttt{this}. Learning that these features are common in production code showed me how much of professional C\# I had not yet seen.
+        \newpage
+        \item \textbf{Animator-driven behavior}: I learned that Unity's Animator can drive the actions of bosses and enemies. The programmer writes only generic reusable behaviors, such as facing the player, moving toward the player, or controlling the camera, and the person designing the encounter assembles them in the Animator graph to build the sequence of actions. This makes the movement look more natural and smooth, and lets a designer change the behavior without editing code. It is not suitable for every game, because the graph becomes complicated as the number of states grows.
     \end{itemize}
 
     \item \textbf{Code review}: I learned to split a pull request into smaller parts, with assets and scripts kept separate, so that reviewers can evaluate each part quickly. My senior asked me to do this from my first ten pull requests, so I adopted it as a habit from the start of production. This taught me that a pull request should be designed for the reader, not only for the author.
 
+    \item \textbf{Professional mindset}:
+    \begin{itemize}[label=$\circ$]
+        \item \textbf{Receiving feedback}: I learned that accepting feedback means understanding why a change is needed, noting it down, and not repeating the same mistake. A disagreement should be settled by explaining my reasoning, not by setting the comment aside.
+        \item \textbf{Building for players}: I learned that a game made for myself and a game made for players lead to different decisions, and that this difference separates a hobby from a profession. It connects to my first pitch, which I dropped because I had not considered the target audience.
+        \item \textbf{Self-awareness}: I learned that the easiest way to find my blind spots is to ask the people around me, because they see a wider picture than I do. I also learned about a common pattern in which people who have just started learning a topic overestimate their skill until they meet new knowledge, and that recognizing what I do not yet know is the important step.
+    \end{itemize}
+
+    \newpage
     \item \textbf{Industry and marketing}: I learned why developers exhibit at events such as Tokyo Game Show or Thailand Game Show. The first reason is that developers can watch players in person and see how they really behave. I experienced this during my previous cooperative education project at Kyoto Institute of Technology in Japan, where I developed a horror game and ran a user study with seven participants who played it while I observed. Seeing their reactions and hearing their comments directly helped me understand the game better than the questionnaire results alone. The second reason is that events let developers collect wishlists, and the third is that they build connections within the industry. Attending as a visitor also allows developers to play other games and ask their creators how particular features were implemented.
 \end{itemize}
 
+\subsection{Scope Adjustment}
+About two weeks before the end of the internship on 30 November, it was clear that the game would not be finished at its original scope. In my internship review, my lead asked me to choose between focusing on gaining experience and focusing on finishing the game, and gave me time to decide. I chose to finish the game and presented a reduced scope to the team, summarized in Table~\ref{tab:scope}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Original and revised MVP scope}
+    \label{tab:scope}
+    \begin{tabular}{p{3cm}p{5.5cm}p{5.5cm}}
+        \toprule
+        \textbf{Area} & \textbf{Original MVP} & \textbf{Revised MVP} \\
+        \midrule
+        Stage type & Kill Them All, with progression to the next stage & Time Survival \\
+        Stages & Multiple stages & One stage \\
+        Enemies & Chaser & Chaser, with other types added if time remains \\
+        Deferred & Not applicable & Other enemy types and stage types, after the internship \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+In the revised scope, the player survives enemies that spawn continuously until the timer ends. A single Time Survival stage replaces multiple stages, because it gives the game a complete loop with a clear winning condition. The remaining work was ordered as the player camera (reusing the prototype values), the Chaser enemy, and then the stage logic. If time remains, other enemy types can be added to the same stage based on elapsed time, without designing new levels.
+
 \subsection{Process Data}
-[Table~\ref{tab:timeline}: phase timeline (pitching, prototype, GDD, TDD and UML, production), with the Mashima solo baseline for comparison.]
+Table~\ref{tab:timeline} shows the time spent on each phase of the company project, with my earlier Mashima project as a reference. Pre-production took about 37 days, and production, which began on 12 October, covers the remaining 49 days until the end of the internship.
 
-[Table~\ref{tab:prstats}: pull request statistics (days to merge, review comments, review rounds).]
+\begin{table}[htbp]
+    \centering
+    \caption{Time spent per phase: Mashima (solo) versus the company project}
+    \label{tab:timeline}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Phase} & \textbf{Mashima} & \textbf{Company project} \\
+        \midrule
+        Pitching (three ideas) & Not applicable & 14 days \\
+        Prototype & about 1 week (together with the & 10 days \\
+        & hospital layout plan and graybox) & \\
+        Game Design Document & about 2 to 3 hours & 8 days \\
+        Technical Design Document & Not applicable & 2 days 5 hours \\
+        UML class diagram & Not applicable & 3 days 1 hour \\
+        \midrule
+        Pre-production total & about 1 week & about 37 days \\
+        Production & 60 days & 49 days \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
-[Figure: categories of review comments (naming, architecture, bug, style).]
+\noindent{\small Company durations are calendar time, during which other work such as meetings and reviews also took place. The Mashima GDD was written in one short session with AI assistance. The two projects also differ in scope.}
+
+\bigskip
+During production, 40 pull requests were merged and 4 were still open on 15 November. Seven pull requests received 20 or more review comments.
+
+Player movement gives a direct comparison between the prototype and production. Table~\ref{tab:movement} shows the time spent on the same behavior in both phases.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Implementing player movement: prototype versus production}
+    \label{tab:movement}
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Version} & \textbf{Time} \\
+        \midrule
+        Prototype (complete movement) & 7 hours 15 minutes \\
+        Production: movement logic in the controller & 2 days 2 hours 45 minutes \\
+        Production: movement state & 6 hours \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \section{Analysis}
 
 \subsection{What the Additional Time Bought}
-[What the pre-production phases and strict reviews produced: documents that a new member can build from, a consistent architecture, and conventions I now follow without being told. Link each point to a number from the tables.]
+The time spent before and during production produced results that the prototype could not provide. The GDD, TDD, and UML class diagram gave the team a shared description of the game that a new member can build from, and the architecture they describe keeps input, logic, and state separate. Strict pull request review taught me the team's conventions, such as naming and namespaces, and my code became easier for others to read than it was in the prototype. In the prototype, I wrote carelessly because I had heard that prototype code is thrown away. These gains are harder to measure than time, but they are the reason a professional team accepts a slower pace.
 
 \subsection{What It Cost}
-[The slower pace compared with solo work, for example about two weeks to make the player walk, and the effect of stacked branches while waiting for merges.]
-
-\subsection{Prototype Versus Production}
-[Why the prototype took one week and production has taken about half of the internship for the same scope: different goals (proof of concept versus production quality), and what the review standards required.]
-
-\subsection{Solo Versus Professional Workflow}
-[Comparison with the Mashima project: about two months solo with weekly meetings and positive feedback, versus a pipeline of documents, prototype, and pull request review. State what each workflow taught me and where each fits.]
+The cost was speed. Player movement took about 7 hours in the prototype and about 3.4 times as long in production, counting a working day as 8 hours. Seven pull requests received 20 or more review comments, and while pull requests waited to be merged, later tasks were built on top of them, so a mistake in one branch affected the next. Near the end of the internship, the slower pace led to a scope decision. With about two weeks left and no clear path to finishing, I reduced the MVP to a single Time Survival stage. For Mashima, I had also reduced the game to a single linear route to fit the time
