@@ -175,4 +175,3 @@ The template manages citations using **BibTeX** (`references.bib`) with the `iee
 ## 📷 Appendices Guidelines
 
 - **Appendix A: Daily Reports (`08_appendix_a.tex`)**: Log of daily work activities categorized by date.
-- **Appendix B: Workplace Photos (`09_appendix_b.tex`)**: Photo documentation featuring the student actively engaged in co-op activities at the workplace, with dates and descriptions.

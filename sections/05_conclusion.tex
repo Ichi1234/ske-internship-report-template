@@ -6,17 +6,19 @@
 \section{Summary of Work}
 This co-op set out to answer one question: how does a professional game development workflow differ from my solo workflow, and what does each cost and give? From 25 August to 30 November, I worked at \companyName{} on a personal 2D top-down action game in Unity, under the supervision of \supervisorName{}, \supervisorPosition{}. The project followed the phases of a professional workflow. I pitched three ideas over two weeks, and the third, an action game, was approved. I then built a prototype in 10 days and wrote a GDD in about 8 days, a TDD in about 2 days, and a UML class diagram in about 3 days. Pre-production took up roughly the first half of the internship, and production began on 12 October. As of 15 November, 40 pull requests had been merged, 4 were open, and 7 had received 20 or more review comments.
 
-I did not finish the original MVP, but the scope change did not disappoint me. Around 14 to 15 November, my lead offered me a choice between experience and finishing, and I chose finishing. The MVP was reduced from a Chaser enemy with a Kill Them All stage and progression to a single Time Survival stage, with other enemies added only if time remains. The workload stayed almost the same, but the game feels more complete because it can be delivered as a single-stage Time Survival game. The remaining enemy types and stage types are deferred until after the internship.
+I did not finish the original MVP, but the scope change did not disappoint me. Around 14 to 15 November, my lead offered me a choice between experience and finishing, and I chose finishing. The MVP was reduced from a Chaser enemy with a Kill Them All stage and progression to a single Time Survival stage, with other enemies added only if time remains. The game feels more complete as a single Time Survival stage with a clear winning condition. The remaining enemy types and stage types are deferred until after the internship.
 
 My earlier solo project, Mashima, was the point of comparison. Its GDD took about 2 to 3 hours with AI assistance, its pre-production took about one week, and the whole game took about two months. I had weekly meetings, but the feedback was positive only, and there was no formal code review. At the company, the same kind of work took far longer. Player movement, for example, took 7 hours 15 minutes in the prototype, while the production version took 2 days 2 hours 45 minutes for the controller logic and 6 hours for the movement state, based on my company timesheet.
 
+\pagebreak
 This comparison is not a controlled one. The two games differ in size and genre, and the company project used no AI by company rule, so part of the time difference comes from tools and not only from workflow. With that limit in mind, the main difference I observed is where the cost goes. In my solo workflow, the cost is mostly hidden. I could move fast, but my design decisions were rarely challenged, so I had little way to find out which of them were weak. In the professional workflow, the cost is paid early and in the open. Documents, diagrams, and reviews took days before a feature existed, and even simple features took longer. In return, the design had been read and questioned by other people, the code was reviewed before it was merged, and the scope decision was made openly with my lead. The solo workflow gives speed and freedom, but it does not scale well, because the knowledge and the decisions stay with one person. The professional workflow is slower at the start, but its documents, reviews, and shared decisions make a project easier to grow and easier to maintain. In my experience, that is its main advantage.
 
 \section{Expectation}
-% TODO (Ichi): add one or two sentences about what you actually expected on 25 August.
+On my first day, 25 August, I expected to show what I could do. I had been making games on my own, and I wanted to prove myself to a professional team. I expected to spend most of the internship writing code. In practice, I spent about half of it on design before production began on 12 October: pitching, prototyping, and writing the GDD, the TDD, and the UML class diagram. This was harder than I expected. Design is where my weaknesses showed most clearly, and I often felt that I should have been better than I was. That feeling was uncomfortable, but it showed me how much I had still to learn.
+
 My expectations about learning were met. I worked in a professional Unity project and practised topics that I had only met briefly before, such as lazy initialization, event ownership, assemblies, generics, and Animator-driven enemy behavior. I also learned how a team uses design documents and code review, which I could not have learned from solo work.
 
-My expectation about delivery changed. I did not finish the original MVP, but I was not disappointed by the scope change. I had estimated my tasks too optimistically, so the original scope was too large for the time. The workload stayed almost the same, and a single Time Survival stage that is fully delivered feels more complete to me than a larger game with parts missing.
+My expectation about delivery changed. I did not finish the original MVP, but I was not disappointed by the scope change. I had estimated my tasks too optimistically, so the original scope was too large for the time. A single Time Survival stage with a clear winning condition that is fully delivered feels more complete to me than a larger game with parts missing.
 
 \section{Benefits}
 \begin{itemize}[label=-]
@@ -25,6 +27,7 @@ My expectation about delivery changed. I did not finish the original MVP, but I 
     \item \textbf{Benefits to the university}: The internship connected topics from my degree, such as design documents, class diagrams, version control, and code review, with how they are used in a real game studio. I can bring these practices back to my own projects and share them with other students.
 \end{itemize}
 
+\pagebreak
 \section{SWOT Analysis of Myself}
 \begin{itemize}[label=-]
     \item \textbf{Strengths}: I am comfortable with software architecture, and I can explain the reasoning behind my design decisions.
@@ -33,11 +36,15 @@ My expectation about delivery changed. I did not finish the original MVP, but I 
     \item \textbf{Threats}: My experience is limited, about 7 to 8 months of game development in total, so I may repeat these habits in future projects unless I change them on purpose. The fixed end date of the internship also limited how much of the original scope I could deliver.
 \end{itemize}
 
+\pagebreak
 \section{Impressive and Special Experiences}
-Looking back, almost every day at \companyName{} was a special experience for me. I was learning how a real game team works while building a game of my own, and I picked up something new at work nearly every day. A few moments stood out the most.
 
-The most memorable was the scope decision. With about two weeks left, my lead offered me a choice between gaining experience and finishing the game, and I had to decide how much of my own plan to give up. Choosing to finish taught me that a smaller scope that is fully delivered can be worth more than a larger scope that is only partly done.
+There were several experiences during my internship that I had not encountered in university projects or my previous solo development experience.
 
-Pull request review was also a special experience. Seven pull requests received 20 or more comments, and reading a long discussion about my own code showed me that review is a conversation about design and not only a search for bugs.
+One of them was the decision to reduce the game's scope. With about two weeks remaining, my lead discussed whether I wanted to focus on gaining more experience or finishing the game. I chose to prioritize finishing it, which meant changing the original plan and accepting that some features would not be included. It was a practical lesson in adjusting expectations based on the time and resources available.
 
-I also learned industry practices that coursework had not shown me, such as the team's brainstorming rules, the Animator-driven approach to enemy and boss behavior, and the role of game events in marketing. Together with my earlier experience in Japan, they gave me a view of two very different ways of working, one solo and one professional, and a clearer idea of what I want to take from each.
+Another memorable experience was the internship performance review. I received honest feedback from my lead and other developers about my performance during the internship. It was valuable to hear both what I had done well and what I still needed to improve. It also helped me understand how the team viewed my progress, rather than relying only on my own assessment.
+
+The pull request review process was another experience I had not encountered in the same way before. Some of my pull requests received many comments, and I had to discuss and revise my implementation based on feedback from other developers. This helped me understand that code review is not simply about finding mistakes, but also about discussing implementation decisions and maintaining code quality across a team.
+
+I also had the opportunity to observe practices that I had not experienced in university projects, including the team's brainstorming process and its use of Animator-driven behavior for enemies and bosses. These experiences gave me a better understanding of how game development is organized in a professional environment.

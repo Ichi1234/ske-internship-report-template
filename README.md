@@ -39,7 +39,7 @@ ske-coop-report-template/
     ├── 05_conclusion.tex     # Chapter 5: Conclusion
     ├── 06_problems.tex       # Chapter 6: Problems and Comments
     ├── 07_references.tex     # References (BibTeX \bibliography)
-    ├── 08_appendix_a.tex     # Appendix A: Daily Reports
+    └── 08_appendix_a.tex     # Appendix A: Daily Reports
     └── 09_appendix_b.tex     # Appendix B: Workplace Photos
 ```
 

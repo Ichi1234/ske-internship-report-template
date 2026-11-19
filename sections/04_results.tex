@@ -13,6 +13,7 @@ The main outcome of this internship was learning how a professional team builds 
     \begin{itemize}[label=$\circ$]
         \item \textbf{Game Design Document (GDD)}: I learned that a GDD is the single source of truth for the project, so it must be detailed enough for a new team member to start working without asking questions. This means including exact formulas and a complete feature list, not only a description of what the player can do. My university elective game course had only covered the high-level approach, so writing at this level of detail showed me that the document has to carry the decisions I would otherwise keep in my head. It also forced me to think through each system before building it.
         \item \textbf{Design pillars}: I learned that a game should be built around a small set of design pillars, which state the core experience the game must deliver. Four is the recommended number, although it is not a strict rule. Every feature should support at least one pillar, and a feature that does not relate to any of them should be cut, even if it sounds interesting. My GDD defines four pillars centered on movement, enemy readability, player skill, and positioning. They give me a way to judge a feature by asking which pillar it serves, instead of by whether I happen to like it.
+        \pagebreak
         \item \textbf{Living documents}: I learned that design documents in the game industry are living documents. They are not written once and filed away; they are versioned and revised as playtesting and production reveal what works. Values that are not yet final are marked to be tuned during production, and sections that depend on unfinished features are flagged for redesign, so a reader can tell what is settled and what is still open.
         \item \textbf{Technical Design Document (TDD)}: I learned that the TDD separates \textit{how} the game is built from \textit{what} the game does, which is the GDD's job. Mine covered the layer list, the collision matrix, and how game data is stored in ScriptableObjects. Deciding these engine-level details in advance meant that the team could build on the same setup, instead of each person making their own choices.
         \item \textbf{UML class diagram}: I learned to divide a class diagram into separate pages, each focused on one part of the system. A single large diagram is hard to read and hard to review, so splitting it helps others understand the architecture before they read any code.
@@ -20,7 +21,7 @@ The main outcome of this internship was learning how a professional team builds 
 
     \item \textbf{Development process}:
     \begin{itemize}[label=$\circ$]
-        \item \textbf{Prototyping}: I learned to begin with a quick prototype that proves the concept and lets other people play the game early. Because prototype code is written for speed and is expected to be discarded, it does not have to meet production standards, which removes the pressure to make it perfect. I wrote the prototype of this project without AI assistance. I also asked my senior whether using AI to jump-start a prototype in a future project was reasonable, and the answer was that it would work for this purpose. The prototype took about ten days, which is much shorter than production (see Table~\ref{tab:timeline}).
+        \item \textbf{Prototyping}: I learned to begin with a quick prototype that proves the concept and lets other people play the game early. Because prototype code is written for speed and is expected to be discarded, it does not have to meet production standards, which removes the pressure to make it perfect. I wrote the prototype of this project without AI assistance. I also asked my senior whether using AI to jump-start a prototype in a future project was reasonable, and the answer was that it would work for this purpose. The prototype took about ten working days, while production covers the remaining seven weeks of the internship. (see Table~\ref{tab:timeline}).
         \item \textbf{Brainstorming}: I learned that a brainstorming session works best with three rules. The team does not recap what is already in the document, so the time goes to new ideas. Participants must not hold others back, or they may be asked to leave. Anyone can join, which keeps communication open across the team. Before this, I had only brainstormed alone, so I had not considered that a group needs rules to stay productive.
         \item \textbf{Task ordering}: I learned that the order of tasks matters as much as their estimates, because dependent work blocks later tasks if it is sequenced wrongly. I now discuss the plan with a mentor before creating tasks.
     \end{itemize}
@@ -30,6 +31,7 @@ The main outcome of this internship was learning how a professional team builds 
         \item \textbf{Initialization}: I learned lazy initialization, together with a CoreGame class (a GameManager) that sets up the important classes in a fixed order. Together they prevent bugs caused by the order in which Unity calls Awake and Start, a problem I used to fix case by case.
         \item \textbf{Events and input}: I learned that only the class that owns an event should invoke it, while other classes only subscribe. Previously, any class could invoke my events, which made it hard to tell where a change came from. I also learned to centralize input in an InputManager instead of checking input directly in the player script, which keeps the player script focused on behavior.
         \item \textbf{Language features}: Several C\# and Unity features were new to me, and I learned what each one is for. \textit{Generics} let a single class or method work with many types, so shared code, such as a state machine or an object pool, does not have to be rewritten for each type. Because generic code does not depend on one game's classes, it can be written once and reused in other games. \textit{Namespaces} group related classes under a common name, which avoids naming conflicts and shows where a class belongs. \textit{Assemblies} split a project into separately compiled modules, which keeps dependencies between parts of the game explicit and shortens compile times. Placing reusable generic code in its own assembly also makes it easy to carry into a new project. \textit{Extension methods} add a method to an existing type, such as a Unity class, without modifying or inheriting from it, by declaring a static method whose first parameter is marked with \texttt{this}. Learning that these features are common in production code showed me how much of professional C\# I had not yet seen.
+        \pagebreak
         \item \textbf{Animator-driven behavior}: I learned that Unity's Animator can drive the actions of bosses and enemies. The programmer writes only generic reusable behaviors, such as facing the player, moving toward the player, or controlling the camera, and the person designing the encounter assembles them in the Animator graph to build the sequence of actions. This makes the movement look more natural and smooth, and lets a designer change the behavior without editing code. It is not suitable for every game, because the graph becomes complicated as the number of states grows.
     \end{itemize}
 
@@ -41,7 +43,7 @@ The main outcome of this internship was learning how a professional team builds 
         \item \textbf{Building for players}: I learned that a game made for myself and a game made for players lead to different decisions, and that this difference separates a hobby from a profession. It connects to my first pitch, which I dropped because I had not considered the target audience.
         \item \textbf{Self-awareness}: I learned that the easiest way to find my blind spots is to ask the people around me, because they see a wider picture than I do. I also learned about a common pattern in which people who have just started learning a topic overestimate their skill until they meet new knowledge, and that recognizing what I do not yet know is the important step.
     \end{itemize}
-
+\pagebreak
     \item \textbf{Industry and marketing}: I learned why developers exhibit at events such as Tokyo Game Show or Thailand Game Show. The first reason is that developers can watch players in person and see how they really behave. I experienced this during my previous cooperative education project at Kyoto Institute of Technology in Japan, where I developed a horror game and ran a user study with seven participants who played it while I observed. Seeing their reactions and hearing their comments directly helped me understand the game better than the questionnaire results alone. The second reason is that events let developers collect wishlists, and the third is that they build connections within the industry. Attending as a visitor also allows developers to play other games and ask their creators how particular features were implemented.
 \end{itemize}
 
@@ -64,11 +66,10 @@ About two weeks before the end of the internship on 30 November, it was clear th
     \end{tabular}
 \end{table}
 
-In the revised scope, the player survives enemies that spawn continuously until the timer ends. A single Time Survival stage replaces multiple stages, because it gives the game a complete loop with a clear winning condition. The remaining workload stayed almost the same, but the reduced MVP can be delivered as a complete single-stage game, so I did not see the change as a loss. The remaining work was ordered as the player camera (reusing the prototype values), the Chaser enemy, and then the stage logic. If time remains, other enemy types can be added to the same stage based on elapsed time, without designing new levels.
+In the revised scope, the player survives enemies that spawn continuously until the timer ends. I chose a single Time Survival stage because the game feels more complete with one stage that has a clear winning condition than with several stages that are only partly finished. The player starts, survives, and either wins when the timer ends or loses, so the whole loop can be played and judged from start to end. I therefore did not see the change as a loss. The remaining work was ordered as the player camera (reusing the prototype values), the Chaser enemy, and then the stage logic. If time remains, other enemy types can be added to the same stage based on elapsed time, without designing new levels.
 
 \subsection{Process Data}
-Table~\ref{tab:timeline} shows the time spent on each phase of the company project, with my earlier Mashima project as a reference. Pre-production began with the internship on 25 August and ended on 11 October, a span of about 48 calendar days, close to half of the 97-day internship. The logged durations of its tasks add up to about 37 days. Production began on 12 October. I wrote this report about two weeks before the internship ended on 30 November, so the production data covers the period up to the time of writing.
-
+Table~\ref{tab:timeline} shows the time spent on each phase of the company project, with my earlier Mashima project as a reference. The company phase durations come from my company timesheet and are counted in days of 8 working hours, while Appendix~A lists the calendar dates. Pre-production ran from 25 August to 11 October, a span of about 48 calendar days, close to half of the 97-day internship. The tasks inside it add up to about 37 timesheet days. This is more than the number of regular working days in that span because I worked overtime, so the timesheet counts the hours I worked and not only the calendar days. Production began on 12 October. I wrote this report before the internship ended on 30 November, so the production data covers the period up to the time of writing.
 \begin{table}[htbp]
     \centering
     \caption{Time spent per phase: Mashima (solo) versus the company project}
@@ -81,10 +82,10 @@ Table~\ref{tab:timeline} shows the time spent on each phase of the company proje
         Game Design Document & about 2 to 3 hours & 8 days \\
         Technical Design Document & Not done & 2 days 5 hours \\
         UML class diagram & Not done & 3 days 1 hour \\
-        Prototype & Not Done & 10 days \\
+        Prototype & Not done & 10 days \\
         \midrule
-        Pre-production total & 7 days & 37 days \\
-        Production & 53 days & 60 days \\
+        Pre-production total & About 1 week & about 37 days \\
+        Production & 53 days & 49 days \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -92,7 +93,9 @@ Table~\ref{tab:timeline} shows the time spent on each phase of the company proje
 \bigskip
 During production, 40 pull requests were merged and 4 were still open on 15 November, and 7 had received 20 or more review comments.
 
-Player movement gives a direct comparison between the prototype and production. Table~\ref{tab:movement} shows the time spent on the same behavior in both phases. The times come from my company timesheet and count active working time only.
+\pagebreak
+Player movement gives a direct comparison between the prototype and production. 
+Table~\ref{tab:movement} shows the time spent on the same behavior in both phases. The times come from my company timesheet and count active working time only.
 
 \begin{table}[htbp]
     \centering
@@ -112,7 +115,11 @@ Player movement gives a direct comparison between the prototype and production. 
 \section{Analysis}
 
 \subsection{What the Additional Time Bought}
-The time spent before and during production produced results that the prototype could not provide. The GDD, TDD, and UML class diagram gave the team a shared description of the game that a new member can build from, and the architecture they describe keeps input, logic, and state separate. Strict pull request review taught me the team's conventions, such as naming and namespaces, and my code became easier for others to read than it was in the prototype. In the prototype, I wrote code quickly and with less care, because prototype code is expected to be thrown away. These gains are harder to measure than time, but they are the reason a professional team accepts a slower pace.
+The time invested before and during production produced benefits that the prototype could not provide. The GDD, TDD, and UML class diagram established a shared description of the game that another team member could use as a reference for further development. The architecture also helped maintain separation between input handling, game logic, and state management.
+
+The pull request (PR) review process was another significant source of learning. Feedback from senior developers introduced me to coding practices and techniques that I had not previously encountered. Through reviewing and revising my code, I improved my understanding of C\#, error handling, naming conventions, namespaces, and code maintainability. It also helped me understand why certain implementation approaches are preferred in a professional development environment.
+
+Compared with the prototype, where I prioritized implementation speed and expected the code to be temporary, the production code required greater attention to readability, consistency, and maintainability. These improvements are harder to measure than development time, but they represent important benefits of following a professional workflow and explain why a professional team may accept a slower development pace.
 
 \subsection{What It Cost}
 The cost was speed. Player movement took about 7 hours in the prototype and about 3.4 times as long in production (about 24 hours 45 minutes in total), counting a working day as 8 hours. Seven pull requests received 20 or more review comments, and each round of review added waiting time before a task could be merged.
@@ -130,7 +137,7 @@ Table~\ref{tab:comparison} summarizes the differences I observed between my solo
         \toprule
         \textbf{Aspect} & \textbf{Solo (Mashima)} & \textbf{Professional} \\
         \midrule
-        Pre-production & About 1 week of about 2 months & About 48 of 97 calendar days \\
+        Pre-production & 7 of about 60 calendar days & About 48 of 97 calendar days \\
         Prototype & None & 10 days, written to be discarded \\
         Documents & GDD in about 2 to 3 hours & GDD, TDD, and UML class diagram over about 13 days of work \\
         Feedback & Weekly meetings with positive feedback only & Pull request review, with critical comments \\
